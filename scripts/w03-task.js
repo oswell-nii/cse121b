@@ -34,22 +34,25 @@ const multiplyNumbers = () => {
     let factor2 = Number(document.querySelector('#factor2').value);
     document.querySelector('#product').value = multiply(factor1, factor2)
 }
-document.querySelector('multiplyNumbers').addEventListener('click', multiplyNumbers);
+
+document.querySelector('#multiplyNumbers').addEventListener('click', multiplyNumbers);
+
 
 /* Open Function Use - Divide Numbers */
 const divide = (dividend, divisor) => dividend / divisor;
-const divideNumber = () => {
+const divideNumbers = () => {
     let dividend = Number(document.querySelector('#dividend').value);
     let divisor = Number(document.querySelector('#divisor').value);
-    document.querySelector('#quotient').value = divide(dividend, divisor);
+    document.querySelector('#quotient').value = divide(dividend, divisor)
 }
-document.querySelector('#divideNumbers').addEventListener('click', divideNumber);
+document.querySelector('#divideNumbers').addEventListener('click', divideNumbers);
 
 /* Decision Structure */
 document.querySelector('#getTotal').addEventListener('click', function() {
     let subTotalValue = parseFloat(document.getElementById('subtotal').value);
+
     const membershipCheckbox = document.getElementById('member');
-    const applyDiscount = membershipCheckbox.ariaChecked;
+    const applyDiscount = membershipCheckbox.checked;
 
     if (applyDiscount) {
         subTotalValue *= 0.8;
@@ -59,20 +62,21 @@ document.querySelector('#getTotal').addEventListener('click', function() {
     document.getElementById('total').textContent = `$${totalDue}`;
 });
 
+
 /* ARRAY METHODS - Functional Programming */
 /* Output Source Array */
 let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];
-document.getElementById('#array').textContent = numbersArray;
+document.getElementById('array').textContent = numbersArray;
 
 /* Output Odds Only Array */
-let oddNumbers = numbersArray.filter(number => number % 2 ===1);
+let oddNumbers = numbersArray.filter(number => number % 2 === 1);
 document.getElementById('odds').textContent = oddNumbers;
 
 /* Output Evens Only Array */
-let evenNumbers = numbersArray.filter(number => number % 2 ===1);
-document.getElementById('evens').textContent = evenNumbers;
+let evenNumbers = numbersArray.filter(number => number % 2 === 0);
+document.getElementById('evens').textContent = evenNumbers;/* Output Sum of Org. Array */
 
-/* Output Sum of Org. Array */
+
 let sumOfArray = numbersArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 document.getElementById('sumOfArray').textContent = sumOfArray;
 
@@ -82,4 +86,5 @@ document.getElementById('multiplied').textContent = multipliedArray;
 
 /* Output Sum of Multiplied by 2 Array */
 let sumOfMultiplied = multipliedArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+// Assign the result to the HTML element with an ID of "sumOfMultiplied"
 document.getElementById('sumOfMultiplied').textContent = sumOfMultiplied;
