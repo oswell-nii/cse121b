@@ -12,11 +12,10 @@ async function getQuote() {
     }
     const data = await response.json();
 
-    // Get a random index within the quotes array
-    const randomIndex = Math.floor(Math.random() * data.Quotes.length);
+    // Use find to get a random quote object with a truthy chance value
+    const randomQuote = data.Quotes.find(() => Math.random() > 0.5);
 
     // Extract quote and author based on API structure
-    const randomQuote = data.Quotes[randomIndex];
     quoteElement.textContent = randomQuote.quote;
     authorElement.textContent = randomQuote.author || 'Unknown'; // Set "Unknown" if author is missing
 
